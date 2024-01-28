@@ -9,3 +9,19 @@ if (regristado === "si"){
     console.log("Usted no se encuentra registrado")
 }
 
+function elegir(){
+    let menu = "Ingrese Una Opcion";
+menu+= "1-hamburguesa";
+menu+= "2-gaseosa";
+menu+= "3-papas";
+menu+= "4-salir"
+
+let cod = 0;
+
+do {
+    cod = parseInt(prompt (menu));
+    console.log("El codigo es :" + " " + cod)
+    }   while (cod!=4);
+}
+
+elegir();
