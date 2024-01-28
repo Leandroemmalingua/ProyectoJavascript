@@ -1,0 +1,252 @@
+#botonpedidos {
+    display: grid; 
+    padding-top: 30px;
+    justify-content: center;
+    grid-template-columns: 400px 400px; 
+    grid-template-rows: 60px 60px 300px; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "elegircompania1 elegircompania1"
+    "elegircompania2 elegircompania2"
+    "elegircompania3 elegircompania4"; 
+}
+
+.elegircompania1 { grid-area: elegircompania1; background-color: rgb(17, 143, 143);}
+.elegircompania2 { grid-area: elegircompania2; background-color: rgb(17, 143, 143);}
+.elegircompania3 { grid-area: elegircompania3; background-color: rgb(17, 143, 143);}
+.elegircompania4 { grid-area: elegircompania4; background-color: rgb(17, 143, 143);}
+
+h1 {
+    font-size: 35px;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: left;
+}
+
+.elegircompania4 img {
+    height: 220px;
+    width: 220px;
+    margin-left: 80px;
+    margin-top: 40px;
+
+}
+
+.elegircompania3 img {
+    height: 220px;
+    width: 220px;
+    margin-left: 80px;
+    margin-top: 40px;
+}
+
+
+@media (max-width: 920px) {
+    #botonpedidos {
+        display: grid;
+        grid-template-columns: 400px; 
+        grid-template-rows: 60px 60px 300px 300px; 
+        grid-template-areas: 
+        "elegircompania1"
+        "elegircompania2"
+        "elegircompania3"
+        "elegircompania4";
+        }
+    .elegircompania1 {
+        font-size: 30px;
+    }
+    .elegircompania2 h2 {
+        font-size: 18px !important;
+    }
+}
+
+@media (max-width: 520px) {
+    #botonpedidos {
+        padding-left: 20px;
+        display: grid;
+        grid-template-columns: 250px; 
+        grid-template-rows: 40px 40px 150px 150px; 
+        grid-template-areas: 
+        "elegircompania1"
+        "elegircompania2"
+        "elegircompania3"
+        "elegircompania4";
+    }
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 15px;
+    }
+    .elegircompania4 img {
+        height: 100px;
+        width: 100px;
+        margin-left: 10px;
+        margin-top: 10px;
+        }
+    
+    .elegircompania3 img {
+        height: 100px;
+        width: 100px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+} 
+
+.nombreempreza {
+    color: rgba(255, 255, 255, 0.63);
+    font-size: 50px;
+}
+
+
+header{
+    width: 100%;
+    background-color: rgb(0, 0, 0) ;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+header nav ul li {
+    display: inline-block;
+    font-style: none;
+    font-size: 25px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+header nav ul li a {
+    color: rgba(255, 255, 255, 0.63);
+    font-size: 20px;
+    transition: 1s;
+    text-decoration: none;
+}
+
+header nav ul li:hover {
+    background-color: rgb(17, 143, 143);
+}
+
+header nav ul li a:hover {
+    color: #000000;
+}
+
+header nav ul li:active {
+    background-color: #00ffff;
+}
+
+
+.logoheader {
+    height: 100%;
+    width: 250px;
+    margin-left: 10px;
+}
+
+.logoheader2 {
+    height: 120px;
+}
+
+
+#videoindex video {
+    margin-top: 50px;
+}
+
+#navBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navBar div ul {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+#navBar ul a:hover {
+    font-size: 30px;
+    transition: 1s;
+}
+
+
+@media (max-width: 1170px) {
+    header {
+        position: sticky;
+        height: fit-content;
+    }
+
+    .logoheader img {
+    width: 300px;
+    }
+    ul {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        position: sticky;
+        height: fit-content;
+    }
+    .logoheader img {
+        width: 180px;
+        }
+
+}
+@media (max-width: 520px) {
+    #navBar {
+        flex-direction: column;
+        align-items: center;
+    }
+        header {
+        position: static;
+        align-items: left;
+    }
+}
+
+@media (max-width: 465px) {
+    header {
+        position: static !important;
+    }
+    .logoheader2 {
+        display: none;
+    }
+}
+
+/*PIE DE PAGINA*/
+footer {
+    background-color: rgba(0, 0, 0, 0.884);
+    height: 70px;
+}
+
+.cajasfooter {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer_logo img {
+    display: flex;
+    width: 150px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+/*ARTICULO CONTENEDOR DE REDES*/
+
+.footer__Redes img {
+    height: 40px;
+    width: 40px;
+    margin: 20px 20px 0 10px;
+}
+
+main {
+    padding-bottom: 50px;
+    min-height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(121,9,103,1) 35%, rgba(0,208,38,0.7175245098039216) 100%);
+    justify-content: center;
+}
