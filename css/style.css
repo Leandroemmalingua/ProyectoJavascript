@@ -1,4 +1,4 @@
-#botonpedidos {
+/*#botonpedidos {
     display: grid; 
     padding-top: 30px;
     justify-content: center;
@@ -40,8 +40,6 @@ h2 {
     margin-left: 80px;
     margin-top: 40px;
 }
-
-
 @media (max-width: 920px) {
     #botonpedidos {
         display: grid;
@@ -93,6 +91,51 @@ h2 {
         margin-top: 10px;
     }
 } 
+@media (max-width: 1170px) {
+    header {
+        position: sticky;
+        height: fit-content;
+    }
+
+    .logoheader img {
+    width: 300px;
+    }
+    ul {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        position: sticky;
+        height: fit-content;
+    }
+    .logoheader img {
+        width: 180px;
+        }
+
+}
+@media (max-width: 520px) {
+    #navBar {
+        flex-direction: column;
+        align-items: center;
+    }
+        header {
+        position: static;
+        align-items: left;
+    }
+}
+
+@media (max-width: 465px) {
+    header {
+        position: static !important;
+    }
+    .logoheader2 {
+        display: none;
+    }
+}
+*/
+
 
 .nombreempreza {
     color: rgba(255, 255, 255, 0.63);
@@ -149,10 +192,6 @@ header nav ul li:active {
 }
 
 
-#videoindex video {
-    margin-top: 50px;
-}
-
 #navBar {
     width: 100%;
     display: flex;
@@ -172,49 +211,7 @@ header nav ul li:active {
 }
 
 
-@media (max-width: 1170px) {
-    header {
-        position: sticky;
-        height: fit-content;
-    }
 
-    .logoheader img {
-    width: 300px;
-    }
-    ul {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 700px) {
-    header {
-        position: sticky;
-        height: fit-content;
-    }
-    .logoheader img {
-        width: 180px;
-        }
-
-}
-@media (max-width: 520px) {
-    #navBar {
-        flex-direction: column;
-        align-items: center;
-    }
-        header {
-        position: static;
-        align-items: left;
-    }
-}
-
-@media (max-width: 465px) {
-    header {
-        position: static !important;
-    }
-    .logoheader2 {
-        display: none;
-    }
-}
 
 /*PIE DE PAGINA*/
 footer {
@@ -240,11 +237,10 @@ footer {
 .footer__Redes img {
     height: 40px;
     width: 40px;
-    margin: 20px 20px 0 10px;
+    margin: 10px 20px 0 10px;
 }
 
 main {
-    padding-bottom: 50px;
     min-height: 100vh;
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(121,9,103,1) 35%, rgba(0,208,38,0.7175245098039216) 100%);
