@@ -1,141 +1,7 @@
-/*#botonpedidos {
-    display: grid; 
-    padding-top: 30px;
-    justify-content: center;
-    grid-template-columns: 400px 400px; 
-    grid-template-rows: 60px 60px 300px; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-    "elegircompania1 elegircompania1"
-    "elegircompania2 elegircompania2"
-    "elegircompania3 elegircompania4"; 
+
+body{
+    margin: 0;
 }
-
-.elegircompania1 { grid-area: elegircompania1; background-color: rgb(17, 143, 143);}
-.elegircompania2 { grid-area: elegircompania2; background-color: rgb(17, 143, 143);}
-.elegircompania3 { grid-area: elegircompania3; background-color: rgb(17, 143, 143);}
-.elegircompania4 { grid-area: elegircompania4; background-color: rgb(17, 143, 143);}
-
-h1 {
-    font-size: 35px;
-    margin: 0px;
-}
-
-h2 {
-    font-size: 30px;
-    text-align: left;
-}
-
-.elegircompania4 img {
-    height: 220px;
-    width: 220px;
-    margin-left: 80px;
-    margin-top: 40px;
-
-}
-
-.elegircompania3 img {
-    height: 220px;
-    width: 220px;
-    margin-left: 80px;
-    margin-top: 40px;
-}
-@media (max-width: 920px) {
-    #botonpedidos {
-        display: grid;
-        grid-template-columns: 400px; 
-        grid-template-rows: 60px 60px 300px 300px; 
-        grid-template-areas: 
-        "elegircompania1"
-        "elegircompania2"
-        "elegircompania3"
-        "elegircompania4";
-        }
-    .elegircompania1 {
-        font-size: 30px;
-    }
-    .elegircompania2 h2 {
-        font-size: 18px !important;
-    }
-}
-
-@media (max-width: 520px) {
-    #botonpedidos {
-        padding-left: 20px;
-        display: grid;
-        grid-template-columns: 250px; 
-        grid-template-rows: 40px 40px 150px 150px; 
-        grid-template-areas: 
-        "elegircompania1"
-        "elegircompania2"
-        "elegircompania3"
-        "elegircompania4";
-    }
-    h1 {
-        font-size: 20px;
-    }
-    h2 {
-        font-size: 15px;
-    }
-    .elegircompania4 img {
-        height: 100px;
-        width: 100px;
-        margin-left: 10px;
-        margin-top: 10px;
-        }
-    
-    .elegircompania3 img {
-        height: 100px;
-        width: 100px;
-        margin-left: 10px;
-        margin-top: 10px;
-    }
-} 
-@media (max-width: 1170px) {
-    header {
-        position: sticky;
-        height: fit-content;
-    }
-
-    .logoheader img {
-    width: 300px;
-    }
-    ul {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 700px) {
-    header {
-        position: sticky;
-        height: fit-content;
-    }
-    .logoheader img {
-        width: 180px;
-        }
-
-}
-@media (max-width: 520px) {
-    #navBar {
-        flex-direction: column;
-        align-items: center;
-    }
-        header {
-        position: static;
-        align-items: left;
-    }
-}
-
-@media (max-width: 465px) {
-    header {
-        position: static !important;
-    }
-    .logoheader2 {
-        display: none;
-    }
-}
-*/
-
 
 .nombreempreza {
     color: rgba(255, 255, 255, 0.63);
@@ -145,6 +11,7 @@ h2 {
 
 header{
     width: 100%;
+    height: 100%;
     background-color: rgb(0, 0, 0) ;
     display: flex;
     position: sticky;
@@ -241,8 +108,19 @@ footer {
 }
 
 main {
-    min-height: 100vh;
+    padding-left: 10px;
+    padding-top: 20px;
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(121,9,103,1) 35%, rgba(0,208,38,0.7175245098039216) 100%);
     justify-content: center;
 }
+
+h3 {
+    margin: 0;
+}
+
+.tarjeta-producto {
+    width: 300px;   
+    background-color: rgba(23, 62, 179, 0.541); 
+}
+
