@@ -1,76 +1,103 @@
 
 const productos = [
-
-    {id:1 , nombre: "Hamburguesa con Queso", imagen: "https://placehold.co/600x400", precio: 2000},
-    {id:2 , nombre: "Hamburguesa con Lechuga y Tomate", imagen: "https://placehold.co/600x400" , precio: 2200},
-    {id:3 , nombre: "Hamburguesa con Cheddar y Panceta", imagen: "https://placehold.co/600x400", precio: 2400},
-    {id:4 , nombre: "Hamburguesa Completa", imagen: "https://placehold.co/600x400" , precio: 2800}
-    ]
-
-let cantidadProductosComprados = 0;
+    {id:1, nombre:"Hamburguesa con Queso", precio:2500},
+    {id:2, nombre:"Hamburguesa Completa", precio:2800},
+    {id:3, nombre:"Hamburguesa de Pollo", precio:2400},
+    {id:4, nombre:"Hamburguesa Cheddar y Panceta", precio:3100},
+]
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function actualizarIconoCarrito() {
-    const iconoCarrito = document.getElementById("cantidad-productos");
-    if (iconoCarrito){
-        iconoCarrito.textContent = cantidadProductosComprados;
-    }
-}
+const elementosCarrito = [];
+const contenedorProductos = document.getElementById('productos');
+const contenedorElementosCarrito = document.getElementById('elementos-carrito');
+const totalSpan = document.getElementById('total');
 
-function listadoProductos(){
-    const contenedorProductos = document.getElementById("item-carrito");
-    contenedorProductos.innerHTML = "";
 
-    carrito.forEach(producto => {
-        const item = document.createElement("div");
-        item.textContent = producto.nombre;
-        contenedorProductos.appendChild(item);
-    });
-    }
-
-function cardsProductos(){
-    const contenedor = document.getElementById("grilla-productos");
-
+function renderizarProductos(){
     productos.forEach(producto =>{
-        const tarjeta = document.createElement("div");
-        tarjeta.classList.add("tarjeta-producto");
-
-        const imagen = document.createElement("img");
-        imagen.src = producto.imagen;
-        imagen.alt = producto.nombre;
-        imagen.classList.add("imagen-producto");
-
-        const nombre = document.createElement("h3");
-        nombre.textContent = producto.nombre;
-        nombre.classList.add("nombre-producto");
-        tarjeta.appendChild(nombre);
-
-        const precio = document.createElement("p")
-        precio.textContent = producto.precio;
-        precio.classList.add("precio-producto");
-        tarjeta.appendChild(precio);
-
-        const botonCompra = document.createElement("button");
-        botonCompra.textContent = "agregar producto";
-        botonCompra.classList.add("boton-compra");
-        botonCompra.addEventListener("click", () =>{
-            carrito.push(producto);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            cantidadProductosComprados++;
-            actualizarIconoCarrito();
-            listadoProductos();
-        })
-
-        tarjeta.appendChild(botonCompra);
-
-        contenedor.appendChild(tarjeta);
-
+        const div = document.createElement('div');
+        div.classList.add('producto');
+        div.innerHTML = `
+        <h3>${producto.nombre}</h3>
+        <img src="${producto.img}" alt="">
+        <p>${producto.precio + "$"}</p>        
+        <button class="btn-agregar-carrito" data-id="${producto.id}">Sumar Producto</button> 
+        `;
+        contenedorProductos.appendChild(div);
+        
     })
 }
 
-cardsProductos();
+function agregarAlCarrito(idProducto){
+    const itemExistente = elementosCarrito.find(item => item.id === idProducto);
+    if(itemExistente){
+        itemExistente.cantidad++
+    }else{
+        const producto = productos.find(p => p.id === idProducto);
+        if(producto){
+            elementosCarrito.push({...producto, cantidad:1});
 
-actualizarIconoCarrito();
+        }
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderizarCarrito();
+}
 
-listadoProductos();
+function eliminarDelCarrito(idProducto){
+    const indice = elementosCarrito.findIndex(item => item.id === idProducto);
+    if(indice !== -1){
+        elementosCarrito.splice(indice, 1);
+        renderizarCarrito();
+    }
+}
+
+function renderizarCarrito() {
+    contenedorElementosCarrito.innerHTML = '';
+    let precioTotal = 0;
+    elementosCarrito.forEach(item =>{
+            const li = document.createElement('li');
+            li.textContent = `${item.nombre} x ${item.cantidad}  - $${item.precio * item.cantidad};`
+            const btnEliminar = document.createElement('button');
+            btnEliminar.textContent = 'eliminar';
+            btnEliminar.addEventListener('click', () => eliminarDelCarrito(item.id))
+            li.appendChild(btnEliminar);
+            contenedorElementosCarrito.appendChild(li);
+            precioTotal += item.precio * item.cantidad;
+    })
+    totalSpan.textContent = precioTotal;
+}
+;
+function realizarCompra(){
+    Swal.fire({
+        title: "Compra Realizada",
+        text: "Gracias Por Elegirnos",
+    });
+    elementosCarrito.length = 0;
+    renderizarCarrito();
+}
+
+document.getElementById('boton-comprar').addEventListener('click',realizarCompra);
+
+contenedorProductos.addEventListener('click',function(evento){
+    if(evento.target.classList.contains('btn-agregar-carrito')){
+            const idProducto = parseInt(evento.target.getAttribute('data-id'));
+            agregarAlCarrito(idProducto);
+        }
+        });
+
+renderizarProductos();
+
+const mensaje = "Gracias Por Elegirnos Una Vez Mas";
+const mensajeDos = document.getElementById("cartel");
+let indice = 0;
+
+function mostrarLetras(){
+    mensajeDos.textContent += mensaje[indice];
+    indice++;
+    if(indice < mensaje.length){
+        setTimeout(mostrarLetras, 300)
+    }
+}
+
+setTimeout(mostrarLetras,1000);
